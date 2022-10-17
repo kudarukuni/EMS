@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2022 at 12:10 PM
+-- Generation Time: Oct 17, 2022 at 08:56 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -32,7 +32,7 @@ CREATE TABLE `assetregister` (
   `ecnum` varchar(255) NOT NULL,
   `seria` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
-  `dob` date NOT NULL,
+  `dob` varchar(255) NOT NULL,
   `sp` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,15 +41,14 @@ CREATE TABLE `assetregister` (
 --
 
 INSERT INTO `assetregister` (`assid`, `ecnum`, `seria`, `model`, `dob`, `sp`) VALUES
-(1, 'kuda', 'NJBDS892W', 'TP Link', '2020-03-30', 64555),
-(2, 'judah', 'HJBAS672', '24 Port Switch', '2021-03-04', 64649),
-(3, 'mario', 'NMZDXUWOQ966', 'HP DJ Printer', '2021-03-12', 48526),
-(4, 'jordan', '354WKJASD25', 'Wall Driller', '2018-03-04', 65468),
-(5, 'palmer', 'DSF6452', 'Laptop Fan', '2019-03-06', 8888),
-(6, 'striker', 'KJHDSIW0934084', 'Seagate External Hard Drive', '2019-02-23', 5000),
-(7, 'cream', 'SXCSXNCNKJ3726', 'Television Screen', '2020-03-06', 4520),
-(8, 'cmere', 'VN78H61', 'Tesla Model 3', '2017-03-11', 45332),
-(9, 'mhanza', 'ER12J921JK', 'BMW M3', '2017-03-11', 213412);
+(1, 'kuda', 'NJBDS892W', 'TP Link', '', 64555),
+(2, 'judah', 'HJBAS672', '24 Port Switch', '', 64649),
+(3, 'mario', 'NMZDXUWOQ966', 'HP DJ Printer', '', 48526),
+(4, 'jordan', '354WKJASD25', 'Wall Driller', '', 65468),
+(5, 'palmer', 'DSF6452', 'Laptop Fan', '', 8888),
+(6, 'striker', 'KJHDSIW0934084', 'Seagate External Hard Drive', '', 5000),
+(7, 'cream', 'SXCSXNCNKJ3726', 'Television Screen', '', 4520),
+(9, 'mhanza', 'ER12J921JK', 'BMW M3', '', 213412);
 
 -- --------------------------------------------------------
 
@@ -59,21 +58,22 @@ INSERT INTO `assetregister` (`assid`, `ecnum`, `seria`, `model`, `dob`, `sp`) VA
 
 CREATE TABLE `confisticated` (
   `Confisticat_Id` int(11) NOT NULL,
-  `Serial Number` varchar(255) NOT NULL,
+  `Serial_Number` varchar(255) NOT NULL,
   `Model` varchar(255) NOT NULL,
-  `Date Purchased` date NOT NULL,
-  `Stock Price` int(255) NOT NULL
+  `Date_Purchsed` varchar(255) NOT NULL,
+  `Stock_Price` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `confisticated`
 --
 
-INSERT INTO `confisticated` (`Confisticat_Id`, `Serial Number`, `Model`, `Date Purchased`, `Stock Price`) VALUES
-(1, 'CNU1382iuohjio', 'mac book pro', '2016-03-21', 12450),
-(3, 'CNU1323232323', 'asus', '2018-03-02', 8764),
-(4, 'CNU666j47', 'Samsung', '2014-03-07', 500),
-(5, 'FBC874004X5', 'Lenovo IBM Thinkpad', '2016-03-05', 3164);
+INSERT INTO `confisticated` (`Confisticat_Id`, `Serial_Number`, `Model`, `Date_Purchsed`, `Stock_Price`) VALUES
+(1, 'CNU1382iuohjio', 'mac book pro', '', 12450),
+(3, 'CNU1323232323', 'asus', '', 8764),
+(4, 'CNU666j47', 'Samsung', '', 500),
+(5, 'FBC874004X5', 'Lenovo IBM Thinkpad', '', 3164),
+(6, 'VN78H61', 'Trsla Model 3', '2022-10-17', 45332);
 
 -- --------------------------------------------------------
 
@@ -84,9 +84,9 @@ INSERT INTO `confisticated` (`Confisticat_Id`, `Serial Number`, `Model`, `Date P
 CREATE TABLE `library` (
   `Library_Id` int(11) NOT NULL,
   `Name` char(255) NOT NULL,
-  `Asset Borrowed` varchar(255) NOT NULL,
-  `Serial Number` varchar(255) NOT NULL,
-  `Due Date` date NOT NULL,
+  `Asset_Borrowed` varchar(255) NOT NULL,
+  `Serial_Number` varchar(255) NOT NULL,
+  `Due_Date` varchar(255) NOT NULL,
   `Phone` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -94,12 +94,9 @@ CREATE TABLE `library` (
 -- Dumping data for table `library`
 --
 
-INSERT INTO `library` (`Library_Id`, `Name`, `Asset Borrowed`, `Serial Number`, `Due Date`, `Phone`) VALUES
-(1, 'Kudakwashe', 'TP Link', 'NJBDS892W', '2020-03-29', 782945321),
-(2, 'Sorobhi', '24 Port Switch', 'HJBAS672', '2020-04-04', 773326598),
-(3, 'Tinotenda', 'HP DJ Printer', 'NMZDXUWOQ966', '2020-03-02', 785495815),
-(4, 'T Gonzi', 'Laptop Fan', 'DSF6452', '2020-03-04', 772649581),
-(7, 'Sorobhi', 'Seagate External Hard Drive', 'KJHDSIW0934084', '2020-03-28', 782000263);
+INSERT INTO `library` (`Library_Id`, `Name`, `Asset_Borrowed`, `Serial_Number`, `Due_Date`, `Phone`) VALUES
+(10, 'benji', 'TV stand', '7862187u09ujn', '', 2017),
+(27, 'cghvghv', 'ghvgv', 'r55r65', '6767686', 56464);
 
 -- --------------------------------------------------------
 
@@ -110,19 +107,19 @@ INSERT INTO `library` (`Library_Id`, `Name`, `Asset Borrowed`, `Serial Number`, 
 CREATE TABLE `maintain` (
   `Main_Id` int(11) NOT NULL,
   `Owner` varchar(255) NOT NULL,
-  `Serial Number` varchar(255) NOT NULL,
+  `Serial_Number` varchar(255) NOT NULL,
   `Model` varchar(255) NOT NULL,
   `History` varchar(255) NOT NULL,
-  `Repair Cost` int(255) NOT NULL,
+  `Repair_Cost` int(255) NOT NULL,
   `Repaired By` char(255) NOT NULL,
-  `Fixed On` varchar(255) NOT NULL
+  `Fixed_On` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `maintain`
 --
 
-INSERT INTO `maintain` (`Main_Id`, `Owner`, `Serial Number`, `Model`, `History`, `Repair Cost`, `Repaired By`, `Fixed On`) VALUES
+INSERT INTO `maintain` (`Main_Id`, `Owner`, `Serial_Number`, `Model`, `History`, `Repair_Cost`, `Repaired By`, `Fixed_On`) VALUES
 (2, 'garry', '64:64:87:89:kk:jf', 'hp envy', 'Needed new O.S', 4, 'Kuda', '2017-03-11'),
 (3, 'ethan', '64:64:87:89:kk:jf', 'hp envy', 'Required more RAM', 40, 'Morris', '2018-03-06'),
 (4, 'braun', '64:64:87:89:kk:jf', 'hp envy', 'Replace damaged Screen', 400, 'Kuda', '2019-03-26'),
@@ -223,13 +220,13 @@ ALTER TABLE `assetregister`
 -- AUTO_INCREMENT for table `confisticated`
 --
 ALTER TABLE `confisticated`
-  MODIFY `Confisticat_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Confisticat_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `library`
 --
 ALTER TABLE `library`
-  MODIFY `Library_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Library_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `maintain`
