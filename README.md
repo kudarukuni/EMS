@@ -1,2 +1,0 @@
-# EMS
-Equipment Management System

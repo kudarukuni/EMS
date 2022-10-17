@@ -88,15 +88,15 @@ Public Class Form7
         Dim Query2, Query3 As String
 
         mysqlconn.Open()
-        Query2 = "INSERT INTO confisticated (Serial_Number, Model, Date_Purchased, Stock_Price) VALUES('" & TextBox1.Text & "', '" & TextBox2.Text & "', '" & TextBox3.Text & "', '" & TextBox4.Text & "')"
+        Query2 = "INSERT INTO confisticated (Serial_Number, Model, Date_Purchsed, Stock_Price) VALUES('" & TextBox1.Text & "', '" & TextBox2.Text & "', '" & TextBox3.Text & "', '" & TextBox4.Text & "')"
         COMMAND2 = New MySqlCommand(Query2, mysqlconn)
-        READER = COMMAND1.ExecuteReader
+        READER = COMMAND2.ExecuteReader
         mysqlconn.Close()
 
         mysqlconn.Open()
         Query3 = "DELETE FROM assetregister WHERE seria='" & TextBox1.Text & "'"
         COMMAND3 = New MySqlCommand(Query3, mysqlconn)
-        READER = COMMAND3.ExecuteReader
+        READER1 = COMMAND3.ExecuteReader
         mysqlconn.Close()
 
         MsgBox("Successfully Confisticated!!")
